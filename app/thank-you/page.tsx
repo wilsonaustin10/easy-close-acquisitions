@@ -81,28 +81,15 @@ export default function ThankYouPage() {
             Our team is available to help answer any questions
           </p>
           <a 
-            href="tel:1234567890" 
+            href="tel:(302) 592-3436" 
             className="inline-flex items-center justify-center space-x-2 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
             onClick={() => trackEvent('thank_you_page_call_click')}
           >
             <Phone className="h-5 w-5" />
-            <span>Call Us Now</span>
+            <span>Call (302) 592-3436</span>
           </a>
         </div>
 
-        <div className="mt-8 text-center">
-          <p className="text-gray-700 mb-4">
-            If you have any immediate questions, don&apos;t hesitate to call us.
-          </p>
-          <a 
-            href="tel:1234567890" 
-            className="inline-flex items-center justify-center space-x-2 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
-            onClick={() => trackEvent('thank_you_page_call_click')}
-          >
-            <Phone className="h-5 w-5" />
-            <span>Call Us Now</span>
-          </a>
-        </div>
       </div>
     </main>
   );
