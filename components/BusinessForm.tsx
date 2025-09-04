@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+// import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { ChevronRight, Building2, DollarSign, Calendar, Loader2 } from 'lucide-react';
 
 interface FormData {
@@ -69,7 +69,7 @@ export default function BusinessForm() {
     leadId: ''
   });
 
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  // const { executeRecaptcha } = useGoogleReCaptcha();
 
   const totalSteps = 5;
   const progress = (step / totalSteps) * 100;
@@ -131,14 +131,15 @@ export default function BusinessForm() {
         return;
       }
 
-      // Execute reCAPTCHA
-      let recaptchaToken = '';
-      if (executeRecaptcha) {
-        recaptchaToken = await executeRecaptcha('submit_business_form');
-      } else {
-        console.warn('reCAPTCHA not available, proceeding without token in development');
-        recaptchaToken = 'test-token';
-      }
+      // Execute reCAPTCHA - COMMENTED OUT TO FIX ERROR
+      // let recaptchaToken = '';
+      // if (executeRecaptcha) {
+      //   recaptchaToken = await executeRecaptcha('submit_business_form');
+      // } else {
+      //   console.warn('reCAPTCHA not available, proceeding without token in development');
+      //   recaptchaToken = 'test-token';
+      // }
+      const recaptchaToken = ''; // Disabled reCAPTCHA
 
       // Generate lead ID
       const leadId = `BIZ-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -152,7 +153,7 @@ export default function BusinessForm() {
         body: JSON.stringify({
           ...formData,
           leadId,
-          recaptchaToken,
+          // recaptchaToken, // Disabled reCAPTCHA
           submissionType: 'business_acquisition',
           timestamp: new Date().toISOString()
         })

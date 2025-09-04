@@ -71,31 +71,31 @@ function validateBusinessFormData(data: Partial<BusinessFormData>): data is Busi
   return true;
 }
 
-// Verify reCAPTCHA token
-async function verifyRecaptcha(token: string): Promise<boolean> {
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  
-  if (!secretKey) {
-    console.warn('reCAPTCHA secret key not configured');
-    return true; // Allow submission in development
-  }
-
-  try {
-    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: `secret=${secretKey}&response=${token}`,
-    });
-
-    const data = await response.json();
-    return data.success && data.score >= 0.5;
-  } catch (error) {
-    console.error('reCAPTCHA verification error:', error);
-    return false;
-  }
-}
+// Verify reCAPTCHA token - DISABLED
+// async function verifyRecaptcha(token: string): Promise<boolean> {
+//   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+//   
+//   if (!secretKey) {
+//     console.warn('reCAPTCHA secret key not configured');
+//     return true; // Allow submission in development
+//   }
+// 
+//   try {
+//     const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/x-www-form-urlencoded',
+//       },
+//       body: `secret=${secretKey}&response=${token}`,
+//     });
+// 
+//     const data = await response.json();
+//     return data.success && data.score >= 0.5;
+//   } catch (error) {
+//     console.error('reCAPTCHA verification error:', error);
+//     return false;
+//   }
+// }
 
 // Send data to Zapier webhook (for backward compatibility)
 async function sendToZapier(data: LeadFormData | BusinessFormData) {
@@ -176,16 +176,16 @@ export async function POST(request: Request) {
       );
     }
 
-    // 3. Verify reCAPTCHA if token provided
-    if (data.recaptchaToken) {
-      const isValidRecaptcha = await verifyRecaptcha(data.recaptchaToken);
-      if (!isValidRecaptcha) {
-        return NextResponse.json(
-          { error: 'reCAPTCHA verification failed' },
-          { status: 400 }
-        );
-      }
-    }
+    // 3. Verify reCAPTCHA if token provided - DISABLED
+    // if (data.recaptchaToken) {
+    //   const isValidRecaptcha = await verifyRecaptcha(data.recaptchaToken);
+    //   if (!isValidRecaptcha) {
+    //     return NextResponse.json(
+    //       { error: 'reCAPTCHA verification failed' },
+    //       { status: 400 }
+    //     );
+    //   }
+    // }
 
     // 4. Handle based on submission type
     if (data.submissionType === 'business_acquisition') {

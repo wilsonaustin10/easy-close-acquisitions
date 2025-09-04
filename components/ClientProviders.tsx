@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { FormProvider } from '../context/FormContext';
-import ReCaptchaProvider from './ReCaptchaProvider';
+// import ReCaptchaProvider from './ReCaptchaProvider';
 
 export default function ClientProviders({
   children,
@@ -10,10 +10,10 @@ export default function ClientProviders({
   children: React.ReactNode;
 }) {
   return (
-    <ReCaptchaProvider>
+    // <ReCaptchaProvider> // Disabled reCAPTCHA
       <FormProvider>
         {children}
       </FormProvider>
-    </ReCaptchaProvider>
+    // </ReCaptchaProvider>
   );
 }
