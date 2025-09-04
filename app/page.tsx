@@ -1,6 +1,6 @@
 import React from 'react';
 import BusinessForm from '../components/BusinessForm';
-import BusinessTestimonials from '../components/BusinessTestimonials';
+// import BusinessTestimonials from '../components/BusinessTestimonials'; // Commented out for now
 // import TrustBadges from '../components/TrustBadges';  // Kept for future use
 // import { CheckCircle } from 'lucide-react';
 import { BusinessBenefits } from '../components/BusinessBenefits';
@@ -62,10 +62,10 @@ export default function Home() {
 
       <BusinessHowItWorks />
       
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-12 sm:py-16 px-4 bg-gray-100">
+      {/* Testimonials Section - Commented out for now */}
+      {/* <section id="testimonials" className="py-12 sm:py-16 px-4 bg-gray-100">
         <BusinessTestimonials />
-      </section>
+      </section> */}
     </main>
   );
 }

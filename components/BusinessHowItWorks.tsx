@@ -59,7 +59,7 @@ export function BusinessHowItWorks() {
 
         <div className="mt-6 sm:mt-8 bg-gradient-to-r from-primary/5 to-secondary/5 p-4 sm:p-6 rounded-lg border border-primary/20">
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 text-center">
-            We&apos;ve helped over <span className="font-bold text-primary">200 business owners</span> transition successfully. Our team handles all legal, financial, and operational aspects, ensuring your legacy continues while you move on to your next chapter.
+            We help <span className="font-bold text-primary">business owners</span> transition successfully. Our team handles all legal, financial, and operational aspects, ensuring your legacy continues while you move on to your next chapter.
           </p>
         </div>
       </div>

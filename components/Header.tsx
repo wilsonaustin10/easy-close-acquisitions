@@ -47,12 +47,13 @@ export default function Header() {
             >
               How It Works
             </Link>
-            <Link 
+            {/* Testimonials link - commented out for now */}
+            {/* <Link 
               href="/#testimonials" 
               className="text-gray-700 hover:text-primary font-medium text-base transition-colors"
             >
               Testimonials
-            </Link>
+            </Link> */}
             <Link 
               href="/about" 
               className="text-gray-700 hover:text-primary font-medium text-base transition-colors"
@@ -115,13 +116,14 @@ export default function Header() {
           >
             How It Works
           </Link>
-          <Link
+          {/* Testimonials link - commented out for now */}
+          {/* <Link
             href="/#testimonials"
             className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
             onClick={closeMenu}
           >
             Testimonials
-          </Link>
+          </Link> */}
           <Link
             href="/about"
             className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
