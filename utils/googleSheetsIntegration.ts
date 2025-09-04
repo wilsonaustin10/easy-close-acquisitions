@@ -20,12 +20,11 @@ export function getGoogleSheetsClient() {
     }
 
     // Create JWT client
-    const jwtClient = new google.auth.JWT(
-      serviceAccountKey.client_email,
-      undefined,
-      serviceAccountKey.private_key,
-      ['https://www.googleapis.com/auth/spreadsheets']
-    );
+    const jwtClient = new google.auth.JWT({
+      email: serviceAccountKey.client_email,
+      key: serviceAccountKey.private_key,
+      scopes: ['https://www.googleapis.com/auth/spreadsheets']
+    });
 
     // Initialize sheets client
     sheetsClient = google.sheets({ version: 'v4', auth: jwtClient });

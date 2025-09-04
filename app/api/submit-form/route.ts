@@ -207,7 +207,9 @@ export async function POST(request: Request) {
       }
 
       // Update phone with formatted version
-      data.phone = phoneValidation.formatted;
+      if (phoneValidation.formatted) {
+        data.phone = phoneValidation.formatted;
+      }
 
       // Send to business acquisition webhook
       try {
