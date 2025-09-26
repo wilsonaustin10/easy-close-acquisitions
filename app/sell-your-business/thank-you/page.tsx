@@ -11,7 +11,7 @@ export default function BusinessThankYouPage() {
     
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'conversion', {
-        'send_to': 'AW-17109864760/wYyRCI-5npQbELiiz94_'
+        'send_to': 'AW-17603413995/YlK2CJO4uqIbEOuP-8lB'
       });
     }
   }, []);
